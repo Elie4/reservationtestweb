@@ -1,0 +1,14 @@
+<div class="restaurant-details" *ngIf="restaurant">
+    <h2>{{ restaurant.name }}</h2>
+    <p>Cuisine: {{ restaurant.cuisine }}</p>
+    <p>Rating: {{ restaurant.rating }} / 5</p>
+  
+    <h3>Select a Branch</h3>
+    <div class="branch-list">
+      <div *ngFor="let branch of branches" class="branch-card">
+        <h4>{{ branch.name }}</h4>
+        <p>{{ branch.address }}</p>
+        <button [routerLink]="['/branch', branch.id]">Select Branch</button>
+      </div>
+    </div>
+  </div>

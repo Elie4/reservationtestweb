@@ -1,0 +1,15 @@
+<div class="branch-selection" *ngIf="restaurant">
+    <h2>Select a Branch for {{ restaurant.name }}</h2>
+    <p>Please choose a branch to make your reservation:</p>
+  
+    <div class="branch-list">
+      <div *ngFor="let branch of branches" class="branch-card" 
+           [class.selected]="selectedBranchId === branch.id"
+           (click)="onBranchSelect(branch.id)">
+        <h3>{{ branch.name }}</h3>
+        <p>{{ branch.address }}</p>
+      </div>
+    </div>
+  
+    <button [disabled]="!selectedBranchId" (click)="onContinue()">Continue to Reservation</button>
+  </div>
